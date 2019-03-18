@@ -1,0 +1,71 @@
+
+    /**
+    *   file css berisi keperluan style untukk TIK UNSRAT 
+    * 
+    *   @author : William Luisan / LumbaLunba
+    */
+
+    /** Universal */
+        .border {
+            border: solid black 1px !important;
+        }
+
+        .box {
+            overflow-x: scroll;
+        }
+
+        .modal-xlg {
+            width: 80% !important;   
+        }
+
+        .table thead th {
+            text-align: center
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .left {
+            text-align: left;
+        }
+
+        .center {
+            text-align: center !important;
+        }
+
+        .select2 {
+            width: 100% !important;
+        }
+
+        .tik_lighter {
+            font-weight: lighter !important;
+        }
+
+        .tik_label--lg {
+            font-size: 10pt;
+        }
+
+        .tik_ov--hide {
+            overflow: hidden !important;
+        }
+
+        .table thead th {
+            text-align: center
+        }
+
+        #alert_js {
+            bottom: 0;
+            position: fixed;
+            background-color: transparent;
+            width: 100%;
+            display: block;
+        }
+
+        #alert_js .alert {
+            width: 40em;
+            margin: 0 auto;
+            margin-bottom: 1em;
+        }
+
+    /** // Universal */
