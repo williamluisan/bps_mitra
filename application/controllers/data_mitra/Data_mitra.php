@@ -7,6 +7,7 @@
         public function __construct()
         {
             parent::__construct();
+            $this->load->model('Data_mitra_model');
         }
 
 
@@ -23,10 +24,28 @@
         }
 
         
-        public function pilih_kegiatan()
+        public function insert()
         {
-            $data['title'] = 'Kegiatan';
-            $data['view_file_path'] = 'umum/pilih_kegiatan.php';
-            $this->load->view('defaults/layout', $data);
+            $result = $this->Data_mitra_model->insert();
+
+            echo $result;
+        }
+
+        
+        public function edit()
+        {
+            
+        }
+
+
+        public function delete()
+        {
+            
+        }
+
+
+        public function detail()
+        {
+
         }
     }

@@ -53,6 +53,5 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = 'Dasar';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['mitra'] = 'data_mitra/Data_mitra/pilih_kegiatan';
-$route['mitra/data'] = 'data_mitra/Data_mitra/index';
-$route['kegiatan'] = 'referensi/Keg_bps/index';
+$route['mitra'] = 'data_mitra/Data_mitra/index';
+$route['kegiatan'] = 'referensi/Kegiatan_bps/index';
