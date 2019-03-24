@@ -104,17 +104,17 @@
     */
 
     // ubah format date dari dd/mm/yyyy to yyyy-mm-dd
-    function tik_date(input, delimiter = '-', split = '/') 
+    function tik_date_reverse(input, delimiter = '-', split = '/') 
     {
         if (input === null) {
             return input;
         } else {
-             //-- memecah input menjadi array
-        input = input.split(split);
-        //-- membuat ke format date mysql
-        input = input[2]+delimiter+input[1]+delimiter+input[0];
+            //-- memecah input menjadi array
+            input = input.split(split);
+            //-- membuat ke format date mysql
+            input = input[2]+delimiter+input[1]+delimiter+input[0];
 
-        return input;
+            return input;
         }
     }
 

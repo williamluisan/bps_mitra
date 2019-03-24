@@ -26,7 +26,6 @@
             <label class="label label-warning label-xs"><i class="fa fa-edit"></i>&nbsp;Edit</label>
             <label class="label label-danger label-xs"><i class="fa fa-trash"></i>&nbsp;Hapus</label>
           </div><br/><br/>
-
           <table class="table table-bordered table-hover table-striped">
             <thead>
                 <tr>
@@ -39,17 +38,19 @@
                 </tr>
             </thead>
             <tbody>
+                <?php $no = 1; foreach($list_kegiatan['data'] as $r):?>
                 <tr>
-                    <td align="center">1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td align="center">4</td>
-                    <td align="center">5</td>
+                    <td align="center"><?php echo $no++;?></td>
+                    <td><?php echo $r['keg_nama'];?></td>
+                    <td><?php echo $r['keg_deskripsi'];?></td>
+                    <td align="center"><?php echo format_tanggal($r['keg_tgl_mulai']);?></td>
+                    <td align="center"><?php echo format_tanggal($r['keg_tgl_selesai']);?></td>
                     <td align="center">
                         <button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#mdl-edit"><i class="fa fa-edit"></i></button>
-                        <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+                        <button class="btn btn-danger btn-xs btn_hps" data-id="<?php echo $r['id'];?>" data-nama="<?php echo $r['keg_nama'];?>"><i class="fa fa-trash"></i></button>
                     </td>
                 </tr>
+                <?php endforeach;?>
             </tbody>
           </table>
         </div>
@@ -71,6 +72,7 @@
               <span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title"><i class="fa fa-plus"></i>&nbsp;&nbsp;Tambah Kegiatan</h4>
           </div>
+          <form id="frm-tmbh">
           <div class="modal-body">
             <div class="form-group row">
               <label for="#" class="col-sm-2 control-label">Nama Kegiatan</label>
@@ -99,8 +101,9 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
-            <button type="button" class="btn btn-success"><i class="fa fa-save"></i>&nbsp;&nbsp;Simpan</button>
+            <button type="button" class="btn btn-success btn_save_tambah"><i class="fa fa-save"></i>&nbsp;&nbsp;Simpan</button>
           </div>
+          </form>
         </div>
       </div>
     </div>

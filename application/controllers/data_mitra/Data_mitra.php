@@ -13,11 +13,7 @@
 
         public function index()
         {
-            $kegiatan_nama = 'Sensus Penduduk 2018';
-
-            $data['title']  = 'Data Mitra - <label class="label label-lg label-warning">';
-            $data['title'] .= $kegiatan_nama;
-            $data['title'] .= '</label>'; 
+            $data['title'] = 'Data Mitra'; 
             $data['view_file_path'] = 'data_mitra/data_mitra_index.php';
             $this->load->view('defaults/layout', $data);
             $this->load->view('data_mitra/data_mitra_index.js.php');
@@ -34,7 +30,9 @@
         
         public function edit()
         {
-            
+            $result = $$this->Data_mitra_model->edit();
+
+            echo $result;
         }
 
 
