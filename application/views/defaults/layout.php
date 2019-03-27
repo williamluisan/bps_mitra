@@ -60,7 +60,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="<?php echo base_url('Login/logout');?>" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -82,7 +82,7 @@
             <img src="<?php echo $this->config->item('resource_url');?>images/user.png" class="img-circle" alt="User Image">
           </div>
           <div class="pull-left info">
-            <p>Sebuah Nama</p>
+            <p><?php echo $this->session->userdata('nama');?></p>
             <a href="#">Administrator</a>
           </div>
         </div>

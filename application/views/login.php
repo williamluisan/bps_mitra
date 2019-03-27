@@ -24,20 +24,25 @@
 <body class="hold-transition">
 <div class="login-box">
   <div class="login-logo">
-    <img width="80" type="image/jpg" alt="UNSRAT" src="<?php echo $this->config->item('resource_url');?>images/unsrat.png"/><br/>
-      <b>NAMA</b> APLIKASI
+    <img width="300" type="image/jpg" alt="UNSRAT" src="<?php echo $this->config->item('resource_url');?>images/BPS.png"/><br/>
+      <b>MANADO</b> 
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p style="text-align: center;">
-        <?php if ( ! empty($this->session->flashdata('notifikasi'))) : ?>
-            <label class="label label-lg label-danger" id="lbl-notif">
-                <?php echo $this->session->flashdata('notifikasi'); ?>
-            </label>
-        <?php endif ?>
+        <!-- flashdata -->
+          <?php if(!empty($this->session->flashdata('error'))){ ?>
+              <div class="row">
+                <div class="col12-md-12 col-sm-12 col-xs-12" style="text-align:center">
+                  <div class="alert alert-danger" role="alert"><strong><?php echo $this->session->flashdata('error'); ?></strong></div>
+                </div>
+              </div>
+          <?php } ?>
+      	<!-- flashdata -->
     </p>
+    <form action="<?php echo base_url(). 'Login/login'; ?>" method="post">
       <div class="form-group has-feedback">
-        <input type="user" class="form-control" placeholder="Username" name="username" required="required">
+        <input type="text" class="form-control" placeholder="Username" name="username" required="required">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
@@ -50,7 +55,7 @@
         </div>
         <!-- /.col -->
       </div>
-
+    </form>
   </div>
   <!-- /.login-box-body -->
 </div>
