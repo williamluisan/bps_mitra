@@ -15,7 +15,7 @@
         <div class="box-header with-border">
           <h3 class="box-title"><?php echo $title;?></h3>
           <div class="box-tools pull-right">
-            <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#mdl-tmbh"><i class="fa fa-plus"></i>&nbsp;&nbsp;Tambah</button>
+            <button class="btn_tmbh btn btn-success btn-sm" data-toggle="modal" data-target="#mdl-tmbh"><i class="fa fa-plus"></i>&nbsp;&nbsp;Tambah</button>
           </div>
         </div>
         <div class="box-body">
@@ -98,7 +98,7 @@
               <label for="#" class="col-sm-2 control-label">Pendidikan Terakhir</label>
               <div class="col-sm-10">
                 <select class="form-control" id="in-sel-pddk" name="in_sel_pddk">
-                  <option value="1">1</option>
+                  <option hidden="hidden">-- pilih pendidikan --</option>
                 </select>
               </div>
             </div>
@@ -119,7 +119,7 @@
               <label for="#" class="col-sm-2 control-label">Pengalaman Mitra</label>
               <div class="col-sm-10">
                 <select class="form-control" id="in-sel-penglmn" name="in_sel_penglmn">
-                  <option value="1">1</option>
+                  <option hidden="hidden">-- pilih kegiatan BPS --</option>
                 </select>
               </div>
             </div>

@@ -26,7 +26,7 @@
                 'data_id_pnglmn_krj' => html_escape($this->input->post('in_sel_penglmn')),
                 'data_no_hp' => html_escape($this->input->post('in_nohp')),
             ];
-
+            
             $query = $this->db_bps->insert('mtr_data', $data);
 
             if ($this->db_bps->affected_rows($query) > 0) {

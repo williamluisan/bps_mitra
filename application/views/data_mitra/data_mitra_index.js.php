@@ -1,4 +1,6 @@
-<script>
+<script type="module">
+    import * as ref from "./resources/additional/bps_mitra_ref_function.js";
+
     $('.table').DataTable({
         "paging": true,
         "lengthChange": true,
@@ -27,7 +29,26 @@
         });
     }
 
-    //-- insert request
+    //--insert modal
+    $('.btn_tmbh').click(() => {  
+        ref.get_ref_pddk('<?php echo base_url();?>').done((d, t, j) => {
+            let elem = $();
+            $.each(d, (key, val) => {
+                elem = elem.add(`<option value="${val.id}">${val.pddk_nama}</option>`);
+            });
+            $('#in-sel-pddk').append(elem);
+        });
+
+        ref.get_ref_keg_bps('<?php echo base_url();?>').done((d, t, j) => {
+            let elem = $();
+            $.each(d, (key, val) => {
+                elem = elem.add(`<option value="${val.id}">${val.keg_nama}</option>`);
+            });
+            $('#in-sel-penglmn').append(elem);
+        });
+    })
+
+    //-- insert request-
     $('.btn_save_tmbh').click(function(){
         var ins_req = request(
             '<?php echo base_url();?>data_mitra/Data_mitra/insert',
