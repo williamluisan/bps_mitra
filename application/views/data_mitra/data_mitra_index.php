@@ -40,19 +40,29 @@
               </tr>
             </thead>
             <tbody>
+              <?php $no = 1; foreach($data_mitra as $r): ?>
               <tr>
-                <td align="center">1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td align="center">5</td>
-                <td align="center">6</td>
+                <td align="center"><?php echo $no++;?></td>
+                <td align="center"><?php echo $r['data_no_mitra'];?></td>
+                <td><?php echo $r['data_nama'];?></td>
+                <td align="center"><?php echo $r['data_no_ktp'];?></td>
+                <td align="center"><?php echo $r['pddk_nama'];?></td>
                 <td align="center">
-                  <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#mdl-detail"><i class="fa fa-eye"></i></button>
-                  <button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#mdl-edit"><i class="fa fa-edit"></i></button>
-                  <button class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+                  <img alt="<?php echo $r['data_nama']?>" src="<?php echo $r['data_pas_foto'];?>"/>
+                </td>
+                <td align="center">
+                  <button class="btn_dtl btn btn-info btn-xs" data-id="<?php echo $r['id'];?>" data-toggle="modal" data-target="#mdl-detail"><i class="fa fa-eye"></i></button>
+                  <button class="btn btn-warning btn-xs" 
+                    data-id="<?php echo $r['id'];?>" 
+                    data-nama="<?php echo $r['data_nama'];?>" 
+                    data-toggle="modal" 
+                    data-target="#mdl-edit"><i class="fa fa-edit"></i></button>
+                  <button class="btn_del btn btn-danger btn-xs" 
+                    data-id="<?php echo $r['id'];?>"
+                    data-nama="<?php echo $r['data_nama'];?>"><i class="fa fa-trash"></i></button>
                 </td>
               </tr>
+              <?php endforeach;?>
             </tbody>
           </table>
         </div>
@@ -218,25 +228,25 @@
             <div class="form-group row">
               <label for="#" class="col-sm-2 control-label">Nama</label>
               <div class="col-sm-10">
-                <label class="label label-lg bg-navy tik_label--lg">{{ nama mitra }}</label>
+                <label id="dtl-lbl-nama" class="label label-lg bg-navy tik_label--lg">{{ nama mitra }}</label>
               </div>
             </div>
             <div class="form-group row">
               <label for="#" class="col-sm-2 control-label">No. Mitra</label>
               <div class="col-sm-10">
-                <label class="label label-lg bg-orange tik_label--lg">{{ nomor mitra }}</label>
+                <label id="dtl-lbl-nomitra" class="label label-lg bg-orange tik_label--lg">{{ nomor mitra }}</label>
               </div>
             </div>
             <div class="form-group row">
               <label for="#" class="col-sm-2 control-label">No. HP</label>
               <div class="col-sm-10">
-                <label class="label label-lg label-info tik_label--lg">{{ no HP }}</label>
+                <label id="dtl-lbl-nohp" class="label label-lg label-info tik_label--lg">{{ no HP }}</label>
               </div>
             </div>
             <div class="form-group row">
               <label for="#" class="col-sm-2 control-label">Alamat</label>
               <div class="col-sm-10">
-                {{ alamat }}
+                <p id="dtl-p-alamat">{{ alamat }}</p>
               </div>
             </div>
             <hr/>

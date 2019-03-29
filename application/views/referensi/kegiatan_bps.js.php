@@ -48,6 +48,29 @@
     });
 
     //-- edit modal
+    $('.btn_edit').click(function(){
+        var id = $(this).data('id');
+
+        var ed_mdl_req = $.ajax({
+            url: "<?php echo base_url();?>referensi_menu/kegiatan_bps/get_spesifik",
+            method: 'POST',
+            data: {id: id},
+            dataType: 'JSON'
+        });
+
+        ed_mdl_req.done((d, t, j) => {
+            $('#ed-id').val(d.data.id);
+            $('#ed-nama-keg').val(d.data.keg_nama);
+            $('#ed-desk').val(d.data.keg_deskripsi);
+            $('#ed-tglmlai').val(tik_date_reverse(d.data.keg_tgl_mulai, '/', '-'));
+            $('#ed-tglakr').val(tik_date_reverse(d.data.keg_tgl_selesai, '/', '-'));
+        });
+
+        ed_mdl_req.fail((j, t, e) => {
+            alert('Terjadi kesalahan');
+            alert(e);
+        });
+    });
 
     //-- edit request
 
@@ -73,6 +96,11 @@
 
         del_req.done(function(d, j, t){
             alert_js(d.status, d.deskripsi);
+        });
+
+        del_req.fail((j, t, e) => {
+            alert('Terjadi kesalahan');
+            alert(e);
         });
     });
 </script>

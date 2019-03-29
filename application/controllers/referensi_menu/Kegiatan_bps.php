@@ -42,4 +42,12 @@
 
             echo $result;
         }
+        
+
+        public function get_spesifik()
+        {
+            $result = $this->Kegiatan_bps_model->get_spesifik();
+
+            echo $result;
+        }
     }

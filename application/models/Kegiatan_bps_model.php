@@ -35,6 +35,32 @@
             return json_encode($status);
         }
 
+
+        public function get_spesifik()
+        {
+            $data['id'] = html_escape($this->input->post('id'));
+            
+            $this->db_bps->where('id', $data['id']);
+            $result = $this->db_bps->get('mtr_prd_kegiatan')->row_array();
+
+            if ( ! empty($result)):
+                $status = array(
+                    'status'    => 'berhasil',
+                    'deskripsi' => 'Berhasil mengambil data',
+                    'data'      => $result
+                );
+            else:
+                $status = array(
+                    'status'    => 'gagal',
+                    'deskripsi' => 'Gagal mengambil data',
+                    'data'      => NULL
+                );
+            endif;
+
+            return json_encode($status);
+        }
+
+
         public function insert()
         {
             $data = [

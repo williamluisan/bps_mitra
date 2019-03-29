@@ -12,10 +12,12 @@
             $this->db_bps = $this->load->database('bps_db', TRUE);
         }
 
+
         public function get_pddk_terakhir()
         {
             return $result = $this->db_bps->get('ref_pddk')->result_array();
         }
+
 
         public function get_keg_bps()
         {

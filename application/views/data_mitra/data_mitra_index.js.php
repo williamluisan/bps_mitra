@@ -26,6 +26,9 @@
             processData: false
         }).always(function (){
             $('.modal').modal('hide');
+            setTimeout(function() {
+                window.location.reload();
+            }, 1000);
         });
     }
 
@@ -70,6 +73,53 @@
     //-- edit request
 
     //-- delete request
+    $('.btn_del').click(function() {
+        var id = $(this).data('id');
+        var nama = $(this).data('nama');
+
+        var del_req = $.ajax({
+            url: '<?php echo base_url();?>data_mitra/Data_mitra/delete',
+            method: 'POST',
+            data: {id: id, nama: nama},
+            dataType: 'JSON'            
+        }).always(function() {
+            $('.modal').hide();
+            setTimeout(function() {
+                window.location.reload();
+            }, 1000);
+        });
+
+        del_req.done((d, t, j) => {
+            alert_js(d.status, d.deskripsi);
+        });
+
+        del_req.fail((j, t, e) => {
+            alert('Terjadi kesalahan');
+            alert(e);
+        });
+    });
 
     //-- detail request
+    $('.btn_dtl').click(function() {
+        var id = $(this).data('id');
+
+        var dtl_req = $.ajax({
+            url: "<?php echo base_url();?>data_mitra/Data_mitra/detail",
+            method: 'POST',
+            data: {id: id},
+            dataType: 'JSON'
+        });
+
+        dtl_req.done((d, t, j) => {
+            $('#dtl-lbl-nama').text(d.data_nama);
+            $('#dtl-lbl-nomitra').text(d.data_no_mitra);
+            $('#dtl-lbl-nohp').text(d.data_no_hp);
+            $('#dtl-p-alamat').text(d.data_alamat);
+        });
+
+        dtl_req.fail((j, t, e) => {
+            alert('Terjadi kesalahan');
+            alert(e);
+        });
+    });
 </script>

@@ -46,8 +46,13 @@
                     <td align="center"><?php echo format_tanggal($r['keg_tgl_mulai']);?></td>
                     <td align="center"><?php echo format_tanggal($r['keg_tgl_selesai']);?></td>
                     <td align="center">
-                        <button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#mdl-edit"><i class="fa fa-edit"></i></button>
-                        <button class="btn btn-danger btn-xs btn_hps" data-id="<?php echo $r['id'];?>" data-nama="<?php echo $r['keg_nama'];?>"><i class="fa fa-trash"></i></button>
+                        <button class="btn_edit btn btn-warning btn-xs"
+                          data-id="<?php echo $r['id'];?>"
+                          data-toggle="modal" 
+                          data-target="#mdl-edit"><i class="fa fa-edit"></i></button>
+                        <button class="btn_hps btn btn-danger btn-xs" 
+                          data-id="<?php echo $r['id'];?>" 
+                          data-nama="<?php echo $r['keg_nama'];?>"><i class="fa fa-trash"></i></button>
                     </td>
                 </tr>
                 <?php endforeach;?>
@@ -133,17 +138,18 @@
             <div class="form-group row">
               <label for="#" class="col-sm-2 control-label">Tgl. Mulai</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="ed-tgl-mlai" name="ed_tgl_mlai" placeholder="#" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                <input type="text" class="form-control" id="ed-tglmlai" name="ed_tgl_mlai" placeholder="#" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
               </div>
             </div>
             <div class="form-group row">
               <label for="#" class="col-sm-2 control-label">Tgl. Berakhir</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="ed-tgl-akr" name="ed_tgl_akr" placeholder="#" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                <input type="text" class="form-control" id="ed-tglakr" name="ed_tgl_akr" placeholder="#" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
               </div>
             </div>
           </div>
           <div class="modal-footer">
+            <input type="hidden" id="ed-id" name="ed_id"/>
             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
             <button type="button" class="btn btn-warning"><i class="fa fa-save"></i>&nbsp;&nbsp;Simpan</button>
           </div>

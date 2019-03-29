@@ -13,7 +13,10 @@
         
         public function get_all()
         {
-            $result = $this->db_bps->get('mtr_data')->result_array();
+            $this->db_bps->select('mtr_data.*, ref_pddk.pddk_nama');
+            $this->db_bps->from('mtr_data');
+            $this->db_bps->join('ref_pddk', 'mtr_data.data_id_pddk_trkhr = ref_pddk.id');
+            $result = $this->db_bps->get()->result_array();
 
             return $result;
         }
@@ -48,6 +51,42 @@
                     'deskripsi' => 'Gagal menambahkan info : '.$data['data_nama']
                 );
             }
+
+            return json_encode($status);
+        }
+
+
+        public function detail()
+        {
+            $data['id'] = html_escape($this->input->post('id'));
+
+            $this->db_bps->where('id', $data['id']);
+            $result = $this->db_bps->get('mtr_data')->row_array();
+
+            return json_encode($result);
+        }
+
+
+        public function delete()
+        {
+            $data = [
+                'id' => html_escape($this->input->post('id')),
+                'nama' => html_escape($this->input->post('nama')),
+            ];
+
+            $query = $this->db_bps->where('id', $data['id'])->delete('mtr_data');
+
+            if ($query != FALSE):
+                $status = [
+                    'status'    => 'berhasil',
+                    'deskripsi' => 'Berhasil menghapus info : '.$data['nama']
+                ];
+            else:
+                $status = [
+                    'status'    => 'gagal',
+                    'deskripsi' => 'Gagal menghapus info : '.$data['nama']
+                ];
+            endif;
 
             return json_encode($status);
         }
