@@ -11,6 +11,14 @@
         }
 
         
+        public function get_all()
+        {
+            $result = $this->db_bps->get('mtr_data')->result_array();
+
+            return $result;
+        }
+
+        
         public function insert()
         {   
             //-- upload gambar terlebih dahulu yah

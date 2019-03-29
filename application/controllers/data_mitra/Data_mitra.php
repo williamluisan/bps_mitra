@@ -13,6 +13,9 @@
 
         public function index()
         {
+            $data['data_mitra'] = $this->Data_mitra_model->get_all();
+            pre($data['data_mitra']);
+
             $data['title'] = 'Data Mitra'; 
             $data['view_file_path'] = 'data_mitra/data_mitra_index.php';
             $this->load->view('defaults/layout', $data);

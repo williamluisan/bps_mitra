@@ -36,7 +36,7 @@
             $.each(d, (key, val) => {
                 elem = elem.add(`<option value="${val.id}">${val.pddk_nama}</option>`);
             });
-            $('#in-sel-pddk').append(elem);
+            $('#in-sel-pddk').html(elem);
         });
 
         ref.get_ref_keg_bps('<?php echo base_url();?>').done((d, t, j) => {
@@ -44,7 +44,7 @@
             $.each(d, (key, val) => {
                 elem = elem.add(`<option value="${val.id}">${val.keg_nama}</option>`);
             });
-            $('#in-sel-penglmn').append(elem);
+            $('#in-sel-penglmn').html(elem);
         });
     })
 
@@ -56,7 +56,7 @@
         );
 
         ins_req.done(function(d, t, j){
-            console.log(d);
+            alert_js(d.status, d.deskripsi);
         });
 
         ins_req.fail(function(j, t, e){
