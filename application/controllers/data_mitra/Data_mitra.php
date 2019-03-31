@@ -32,7 +32,7 @@
         
         public function edit()
         {
-            $result = $$this->Data_mitra_model->edit();
+            $result = $this->Data_mitra_model->edit();
 
             echo $result;
         }

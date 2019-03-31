@@ -93,12 +93,12 @@
     $('.btn_hps').click(function(){
         var id = $(this).data('id');
         var nama = $(this).data('nama');
+
+        if ( ! window.confirm(`Yakin akan menghapus kegiatan ${nama}?`)) {
+            return false;
+        }
+
         var del_req = $.ajax({
-            beforeSend: function(){
-                if ( ! window.confirm(`Yakin akan menghapus kegiatan ${nama}?`)) {
-                    return false;
-                }
-            },
             url: '<?php echo base_url();?>referensi_menu/Kegiatan_bps/delete',
             method: 'POST',
             data: {id: id, nama: nama},
