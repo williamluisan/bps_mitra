@@ -122,6 +122,7 @@
               <span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title"><i class="fa fa-edit"></i>&nbsp;&nbsp;Edit Kegiatan</h4>
           </div>
+          <form id="frm-edit">
           <div class="modal-body">
             <div class="form-group row">
               <label for="#" class="col-sm-2 control-label">Nama Kegiatan</label>
@@ -151,8 +152,9 @@
           <div class="modal-footer">
             <input type="hidden" id="ed-id" name="ed_id"/>
             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
-            <button type="button" class="btn btn-warning"><i class="fa fa-save"></i>&nbsp;&nbsp;Simpan</button>
+            <button type="button" class="btn btn-warning btn_save_edit"><i class="fa fa-save"></i>&nbsp;&nbsp;Simpan</button>
           </div>
+          </form>
         </div>
       </div>
     </div>

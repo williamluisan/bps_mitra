@@ -32,7 +32,9 @@
 
         public function edit()
         {
+            $result = $this->Kegiatan_bps_model->edit();
 
+            echo $result;
         }
 
 

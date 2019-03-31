@@ -33,7 +33,7 @@
     //-- insert request
     $('.btn_save_tambah').click(function(){
         var ins_req = request(
-            '<?php echo base_url();?>referensi/kegiatan_bps/insert',
+            '<?php echo base_url();?>referensi_menu/kegiatan_bps/insert',
             formData('frm-tmbh')
         );
 
@@ -73,6 +73,21 @@
     });
 
     //-- edit request
+    $('.btn_save_edit').click(function(){
+        var ed_req = request(
+            '<?php echo base_url();?>referensi_menu/kegiatan_bps/edit',
+            formData('frm-edit')
+        );
+
+        ed_req.done((d, t, j) => {
+            alert_js(d.status, d.deskripsi);
+        });
+
+        ed_req.fail((j, t, e) => {
+            alert('Terjadi kesalahan');
+            alert(e);
+        });
+    });
 
     //-- delete request
     $('.btn_hps').click(function(){
@@ -84,7 +99,7 @@
                     return false;
                 }
             },
-            url: '<?php echo base_url();?>referensi/Kegiatan_bps/delete',
+            url: '<?php echo base_url();?>referensi_menu/Kegiatan_bps/delete',
             method: 'POST',
             data: {id: id, nama: nama},
             dataType: 'JSON'

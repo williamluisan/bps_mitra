@@ -90,7 +90,29 @@
         
         public function edit()
         {
+            $id   = html_escape($this->input->post('ed_id'));
+            $data = [
+                'keg_nama' => html_escape($this->input->post('ed_nama_keg')),
+                'keg_deskripsi' => html_escape($this->input->post('ed_desk')),
+                'keg_tgl_mulai' => reverse_date(html_escape($this->input->post('ed_tgl_mlai')), '/', '-'),
+                'keg_tgl_selesai' => reverse_date(html_escape($this->input->post('ed_tgl_akr')), '/', '-')
+            ];
+            
+            $query = $this->db_bps->where('id', $id)->update('mtr_prd_kegiatan', $data);
+            
+            if ($this->db_bps->affected_rows($query) > 0) {
+                $status = array(
+                    'status'    => 'berhasil',
+                    'deskripsi' => 'Berhasil edit info : '.$data['keg_nama']
+                );
+            } else {
+                $status = array(
+                    'status'    => 'gagal',
+                    'deskripsi' => 'Gagal edit info : '.$data['keg_nama']
+                );
+            }
 
+            return json_encode($status);
         }
 
 
