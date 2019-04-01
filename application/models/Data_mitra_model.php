@@ -149,4 +149,10 @@
             return json_encode($status);
         }
 
+
+        public function tambah_pengalaman()
+        {
+            return json_encode($this->input->post());
+        }
+
     }

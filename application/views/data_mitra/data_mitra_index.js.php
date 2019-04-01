@@ -124,6 +124,39 @@
         });
     });
 
+    //-- pengalaman modal
+    $('.btn_pnglmn').click(function() {
+        //-- mengambil referensi kegiatan
+        ref.get_ref_keg_bps('<?php echo base_url();?>').done((d, t, j) => {
+            let elem = $();
+            $.each(d, (key, val) => {
+                elem = elem.add(`<option value="${val.id}">${val.keg_nama}</option>`);
+            });
+            $('#in-sel-keg').html(elem);
+        });
+
+        var id = $(this).data('id');
+        $('#pnglmn-id').val(id);
+    });
+
+    //-- pengalaman request
+    $('.btn_tmbh_pnglmn').click(function(){
+        var pnglmn_req = request(
+            '<?php echo base_url();?>data_mitra/Data_mitra/tambah_pengalaman',
+            formData('frm-tmbh-pnglmn')
+        );
+
+        pnglmn_req.done((d, t, j) => {
+            console.log(d);
+            alert_js(d.status, d.deskripsi);
+        });
+
+        pnglmn_req.fail((j, t, e) => {
+            alert('Terjadi kesalahan');
+            alert(e);
+        });
+    });
+
     //-- delete request
     $('.btn_del').click(function() {        
         var id = $(this).data('id');

@@ -55,6 +55,12 @@
                   <img width="80" alt="<?php echo $r['data_nama']?>" src="<?php echo $this->config->item('pas_foto')['upload_path'].$r['data_pas_foto'];?>"/>
                 </td>
                 <td align="center">
+                  <button class="btn_pnglmn btn btn-success btn-xs" title="Tambah pengalaman mitra" style="margin-bottom: 0.5em;" 
+                    data-toggle="modal"
+                    data-target="#mdl-pengalaman"
+                    data-id="<?php echo $r['data_no_mitra'];?>"
+                    data-nama="<?php echo $r['data_nama'];?>"><i class="fa fa-plus"></i>&nbsp;&nbsp;Pengalaman</button>
+                  <br/>
                   <button class="btn_dtl btn btn-info btn-xs" data-id="<?php echo $r['id'];?>" data-toggle="modal" data-target="#mdl-detail"><i class="fa fa-eye"></i></button>
                   <button class="btn_edit btn btn-warning btn-xs" 
                     data-id="<?php echo $r['id'];?>" 
@@ -130,14 +136,6 @@
               </div>
             </div>
             <div class="form-group row">
-              <label for="#" class="col-sm-2 control-label">Pengalaman Mitra</label>
-              <div class="col-sm-10">
-                <select class="form-control" id="in-sel-penglmn" name="in_sel_penglmn">
-                  <option hidden="hidden">-- pilih kegiatan BPS --</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group row">
               <label for="#" class="col-sm-2 control-label">No. HP</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control tik_num" id="in-nohp" name="in_nohp" placeholder="#">
@@ -209,14 +207,6 @@
               </div>
             </div>
             <div class="form-group row">
-              <label for="#" class="col-sm-2 control-label">Pengalaman Mitra</label>
-              <div class="col-sm-10">
-                <select class="form-control">
-                  <option>1</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group row">
               <label for="#" class="col-sm-2 control-label">No. HP</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control tik_num" id="ed-nohp" name="ed_nohp" placeholder="#">
@@ -281,6 +271,66 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
             <button type="button" class="btn btn-success"><i class="fa fa-save"></i>&nbsp;&nbsp;Simpan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      #tbl-pengalaman { width: 100%; }
+      #tbl-pengalaman thead tr th { text-align: center; border: solid #cccccc 1px; background-color: #fcf592; }
+      #tbl-pengalaman tbody tr td { border: solid #cccccc 1px; padding: 0.5em 1em 0.5em 1em; }
+    </style>
+    <div class="modal fade modal-default" id="mdl-pengalaman">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title"><i class="fa fa-plus"></i>&nbsp;&nbsp;Pengalaman Mitra</h4>
+          </div>
+          <div class="modal-body">
+            <form id="frm-tmbh-pnglmn">
+              <div class="form-group row" style="margin-bottom: 0px;">
+                <label for="#" class="col-sm-2 control-label">Kegiatan BPS</label>
+                <div class="col-sm-10">
+                  <select class="form-control" id="in-sel-keg" name="in_sel_keg"></select>
+                </div>
+              </div>
+              <div class="row center">
+                <input type="hidden" id="pnglmn-id" name="pnglmn_id"/>
+                <button type="button" class="btn_tmbh_pnglmn btn btn-success btn-xs"><i class="fa fa-plus"></i>&nbsp;&nbsp;Tambah</button>
+              </div>
+            </form>
+          </div>
+          <hr/>
+          <div class="row">
+            <div class="col-sm-12" style="padding: 0em 2em 0em 2em;">
+              <table id="tbl-pengalaman">
+                <thead>
+                  <tr>
+                    <th colspan="3">PENGALAMAN MITRA</th>
+                  </tr>
+                  <tr>
+                    <th>No.</th>
+                    <th>Pengalaman</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- <tr>
+                    <td align="center">1</td>
+                    <td>2</td>
+                    <td align="center">
+                      <button class="btn_hps_pnglmn btn btn-xs btn-danger"><i class="fa fa-trash"></i></button>
+                    </td>
+                  </tr> -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Tutup</button>
           </div>
         </div>
       </div>

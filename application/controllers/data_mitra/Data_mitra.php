@@ -52,4 +52,12 @@
 
             echo $result;
         }
+
+        
+        public function tambah_pengalaman()
+        {
+            $result = $this->Data_mitra_model->tambah_pengalaman();
+
+            echo $result;
+        }
     }
