@@ -71,7 +71,7 @@
             ];            
             
             $query = $this->db_bps->insert('mtr_prd_kegiatan', $data);
-
+            
             if ($this->db_bps->affected_rows($query) > 0) {
                 $status = array(
                     'status'    => 'berhasil',

@@ -46,7 +46,10 @@ class RefPendidikanSeed extends AbstractSeed
             ],
         ];
 
+        $this->execute('SET FOREIGN_KEY_CHECKS = 0');
+        
         $table = $this->table('ref_pddk');
+        $table->truncate();
         $table->insert($data)
             ->save();
     }

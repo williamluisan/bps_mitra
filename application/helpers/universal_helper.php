@@ -70,7 +70,7 @@
     function reverse_date($date, $delimiter_in, $delimiter_out)
     {
       $date = explode($delimiter_in, $date);
-      $date = "$date[2].$delimiter_out.$date[1].$delimiter_out.$date[0]";
+      $date = $date[2].$delimiter_out.$date[1].$delimiter_out.$date[0];
 
       return $date;
     }
