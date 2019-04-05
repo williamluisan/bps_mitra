@@ -66,8 +66,8 @@
             $data = [
                 'keg_nama' => html_escape($this->input->post('in_nama_keg')),
                 'keg_deskripsi' => html_escape($this->input->post('in_desk')),
-                'keg_tgl_mulai' => reverse_date(html_escape($this->input->post('ed_tgl_mlai')), '/', '-'),
-                'keg_tgl_selesai' => reverse_date(html_escape($this->input->post('ed_tgl_akr')), '/', '-')
+                'keg_tgl_mulai' => html_escape($this->input->post('ed_tgl_mlai')),
+                'keg_tgl_selesai' => html_escape($this->input->post('ed_tgl_akr'))
             ];            
             
             $query = $this->db_bps->insert('mtr_prd_kegiatan', $data);
