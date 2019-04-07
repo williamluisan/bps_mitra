@@ -42,18 +42,9 @@
             });
             $('#in-sel-pddk').html(elem);
         });
-
-        //-- mengambil referensi kegiatan bps
-        ref.get_ref_keg_bps('<?php echo base_url();?>').done((d, t, j) => {
-            let elem = $();
-            $.each(d, (key, val) => {
-                elem = elem.add(`<option value="${val.id}">${val.keg_nama}</option>`);
-            });
-            $('#in-sel-penglmn').html(elem);
-        });
     })
 
-    //-- insert request-
+    //-- insert request
     $('.btn_save_tmbh').click(function(){
         var ins_req = request(
             '<?php echo base_url();?>data_mitra/Data_mitra/insert',
@@ -114,7 +105,6 @@
         );
 
         ed_req.done((d, t, j) => {
-            console.log(d);
             alert_js(d.status, d.deskripsi);
         });
 
@@ -126,17 +116,64 @@
 
     //-- pengalaman modal
     $('.btn_pnglmn').click(function() {
+        var id = $(this).data('id');
+        var nama = $(this).data('nama');
+
         //-- mengambil referensi kegiatan
-        ref.get_ref_keg_bps('<?php echo base_url();?>').done((d, t, j) => {
+        ref.get_ref_keg_bps('<?php echo base_url();?>', id).done((d, t, j) => {
             let elem = $();
-            $.each(d, (key, val) => {
-                elem = elem.add(`<option value="${val.id}">${val.keg_nama}</option>`);
-            });
+
+            //-- jika result kosong
+            if (d.length == 0) {
+                elem = elem.add(`<option hidden="hidden" readonly="readonly">Tidak ada pilihan, semua kegiatan telah diikuti</option>`);
+                $('.btn_tmbh_pnglmn').hide();
+            } else {
+                $.each(d, (key, val) => {
+                    elem = elem.add(`<option value="${val.id}">${val.keg_nama}</option>`);
+                });
+                $('.btn_tmbh_pnglmn').show();
+            }
             $('#in-sel-keg').html(elem);
         });
 
-        var id = $(this).data('id');
-        $('#pnglmn-id').val(id);
+        //-- mengambil list pengalaman mitra
+        var list_pnglmn_req = $.ajax({
+            url: '<?php echo base_url();?>data_mitra/Data_mitra/get_pengalaman',
+            method: 'POST',
+            data: {mitra_id: id},
+            dataType: 'json'
+        }).done((d, t, j) => {
+            let elem = $();
+
+            //-- jika result kosong
+            if (d.length == 0) {
+                elem = elem.add(`<tr><td colspan="3" align="center">-- Belum pernah mengikuti kegiatan BPS --</td></tr>`);
+            } else {
+                $.each(d, (key, val) => {
+                    elem = elem.add(`
+                        <tr>
+                            <td align="center">${key+1}</td>
+                            <td>${val.keg_nama}</td>
+                            <td align="center">
+                                <button 
+                                    data-hpsid="${val.id}" 
+                                    data-hpsmitranama="${nama}"
+                                    data-hpspnglmnnama="${val.keg_nama}" class="btn_hps_pnglmn btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    `);
+                });
+            }
+            $('#tbl-pengalaman tbody').html(elem);
+        }).fail((j, t, e) => {
+            alert('Terjadi kesalahan');
+            alert(e);
+        });
+
+        $('#no-mitra').val(id);
+        $('#nama-mitra').val(nama);
+        $('#lbl-pnglmn-nama').text(nama);
+        $('#lbl-pnglmn-nomor').text(id);
     });
 
     //-- pengalaman request
@@ -147,13 +184,40 @@
         );
 
         pnglmn_req.done((d, t, j) => {
-            console.log(d);
             alert_js(d.status, d.deskripsi);
         });
 
         pnglmn_req.fail((j, t, e) => {
             alert('Terjadi kesalahan');
             alert(e);
+        });
+    });
+
+    //-- delete pengalaman request
+    $(document).on('click', '.btn_hps_pnglmn', function(){
+        var id = $(this).data('hpsid');
+        var pnglmn_nama = $(this).data('hpspnglmnnama');
+        var nama = $(this).data('hpsmitranama');
+        
+        if ( ! window.confirm(`Yakin akan menghapus pengalaman mitra ${pnglmn_nama}?`)) {
+            return false;
+        }
+
+        var hps_pnglmn_req = $.ajax({
+            url: '<?php echo base_url();?>data_mitra/Data_mitra/hapus_pengalaman',
+            method: 'POST',
+            data: {hpsid: id, hpsmitranama: nama},
+            dataType: 'json'
+        }).done((d, t, j) => {
+            alert_js(d.status, d.deskripsi);
+        }).fail((j, t, e) => {
+            alert('Terjadi kesalahan');
+            alert(e);
+        }).always(function(){
+            $('.modal').modal('hide');
+            setTimeout(function() {
+                window.location.reload();
+            }, 1000); 
         });
     });
 

@@ -53,10 +53,26 @@
             echo $result;
         }
 
+
+        public function get_pengalaman()
+        {
+            $result = $this->Data_mitra_model->get_pengalaman();
+
+            echo json_encode($result);
+        }
+
         
         public function tambah_pengalaman()
         {
             $result = $this->Data_mitra_model->tambah_pengalaman();
+
+            echo $result;
+        }
+
+
+        public function hapus_pengalaman()
+        {
+            $result = $this->Data_mitra_model->hapus_pengalaman();
 
             echo $result;
         }

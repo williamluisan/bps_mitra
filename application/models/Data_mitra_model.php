@@ -150,9 +150,66 @@
         }
 
 
+        public function get_pengalaman()
+        {
+            $mitra_id = html_escape($this->input->post('mitra_id'));
+
+            $this->db_bps->select('a.*, b.keg_nama');
+            $this->db_bps->from('mtr_pengalaman AS a');
+            $this->db_bps->join('mtr_prd_kegiatan AS b', 'a.pnglmn_keg_id = b.id');
+            $this->db_bps->where('pnglmn_data_no_mitra', $mitra_id);
+            $this->db_bps->order_by('id', 'ASC');
+            
+            return $result = $this->db_bps->get()->result_array();
+        }
+
+
         public function tambah_pengalaman()
         {
-            return json_encode($this->input->post());
+            $nama = html_escape($this->input->post('in_nama_mitra'));
+            $data = [
+                'pnglmn_data_no_mitra' => html_escape($this->input->post('in_no_mitra')),
+                'pnglmn_keg_id' => html_escape($this->input->post('in_sel_keg')),
+            ];
+
+            $query = $this->db_bps->insert('mtr_pengalaman', $data);
+
+            if ($this->db_bps->affected_rows($query) > 0) {
+                $status = array(
+                    'status'    => 'berhasil',
+                    'deskripsi' => 'Berhasil menambahkan pengalaman mitra : '.$nama
+                );
+            } else {
+                $status = array(
+                    'status'    => 'gagal',
+                    'deskripsi' => 'Gagal menambahkan pengalaman mitra : '.$nama
+                );
+            }
+
+            return json_encode($status);
+        }
+
+
+        public function hapus_pengalaman()
+        {
+            $nama = html_escape($this->input->post('hpsmitranama'));
+            $id = html_escape($this->input->post('hpsid'));
+
+            $query = $this->db_bps->where('id', $id)->delete('mtr_pengalaman');
+
+            if ($query != FALSE):
+                $status = [
+                    'status'    => 'berhasil',
+                    'deskripsi' => 'Berhasil menghapus pengalman mitra : '.$nama
+                ];
+            else:
+                $status = [
+                    'status'    => 'gagal',
+                    'deskripsi' => 'Gagal menghapus pengalaman mitra : '.$nama
+                ];
+            endif;
+
+            return json_encode($status);
         }
 
     }

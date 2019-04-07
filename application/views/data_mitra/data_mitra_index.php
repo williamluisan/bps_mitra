@@ -291,6 +291,18 @@
           </div>
           <div class="modal-body">
             <form id="frm-tmbh-pnglmn">
+              <div class="form-group row">
+                <label for="#" class="col-sm-3 control-label">Nama Mitra</label>
+                <div class="col-sm-9">
+                  : <span id="lbl-pnglmn-nama"></span>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="#" class="col-sm-3 control-label">Nomor Mitra</label>
+                <div class="col-sm-9">
+                  : <span id="lbl-pnglmn-nomor"></span>
+                </div>
+              </div>
               <div class="form-group row" style="margin-bottom: 0px;">
                 <label for="#" class="col-sm-2 control-label">Kegiatan BPS</label>
                 <div class="col-sm-10">
@@ -298,7 +310,8 @@
                 </div>
               </div>
               <div class="row center">
-                <input type="hidden" id="pnglmn-id" name="pnglmn_id"/>
+                <input type="hidden" id="no-mitra" name="in_no_mitra"/>
+                <input type="hidden" id="nama-mitra" name="in_nama_mitra"/>
                 <button type="button" class="btn_tmbh_pnglmn btn btn-success btn-xs"><i class="fa fa-plus"></i>&nbsp;&nbsp;Tambah</button>
               </div>
             </form>
