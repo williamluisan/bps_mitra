@@ -261,9 +261,7 @@
             <div class="form-group row">
               <label for="#" class="col-sm-2 control-label">Pengalaman Mitra :</label>
               <div class="col-sm-10">
-                <ul>
-                  <li>Pengalaman</li>
-                  <li>Pengalaman</li>
+                <ul id="dtl-list-pnglmn">
                 </ul>
               </div>
             </div>
@@ -330,15 +328,7 @@
                     <th>Aksi</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <!-- <tr>
-                    <td align="center">1</td>
-                    <td>2</td>
-                    <td align="center">
-                      <button class="btn_hps_pnglmn btn btn-xs btn-danger"><i class="fa fa-trash"></i></button>
-                    </td>
-                  </tr> -->
-                </tbody>
+                <tbody></tbody>
               </table>
             </div>
           </div>

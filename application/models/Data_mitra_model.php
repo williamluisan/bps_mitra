@@ -118,8 +118,12 @@
         {
             $data['id'] = html_escape($this->input->post('id'));
 
-            $this->db_bps->where('id', $data['id']);
-            $result = $this->db_bps->get('mtr_data')->row_array();
+            $this->db_bps->select('a.*, c.keg_nama');
+            $this->db_bps->from('mtr_data AS a');
+            $this->db_bps->join('mtr_pengalaman AS b', 'a.data_no_mitra = b.pnglmn_data_no_mitra', 'left');
+            $this->db_bps->join('mtr_prd_kegiatan AS c', 'b.pnglmn_keg_id = c.id', 'left');
+            $this->db_bps->where('a.id', $data['id']);
+            $result = $this->db_bps->get()->result_array();
 
             return json_encode($result);
         }

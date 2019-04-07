@@ -264,10 +264,20 @@
         });
 
         dtl_req.done((d, t, j) => {
-            $('#dtl-lbl-nama').text(d.data_nama);
-            $('#dtl-lbl-nomitra').text(d.data_no_mitra);
-            $('#dtl-lbl-nohp').text(d.data_no_hp);
-            $('#dtl-p-alamat').text(d.data_alamat);
+            $('#dtl-lbl-nama').text(d[0].data_nama);
+            $('#dtl-lbl-nomitra').text(d[0].data_no_mitra);
+            $('#dtl-lbl-nohp').text(d[0].data_no_hp);
+            $('#dtl-p-alamat').text(d[0].data_alamat);
+
+            let elem = $();
+            if (d[0].keg_nama == null) {
+                elem = elem.add(`<li>-- Belum pernah mengikuti kegiatan BPS --</li>`);
+            } else {
+                $.each(d, function(key, val){
+                    elem = elem.add(`<li>${val.keg_nama}</li>`);
+                });
+            }
+            $('#dtl-list-pnglmn').html(elem);
         });
 
         dtl_req.fail((j, t, e) => {
