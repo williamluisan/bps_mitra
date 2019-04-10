@@ -94,13 +94,13 @@
             <div class="form-group row">
               <label for="#" class="col-sm-2 control-label">Tgl. Mulai</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control" id="ed-tgl-mlai" name="ed_tgl_mlai">
+                <input type="date" class="form-control" id="ed-tgl-mlai" name="ed_tgl_mlai" required="required">
               </div>
             </div>
             <div class="form-group row">
               <label for="#" class="col-sm-2 control-label">Tgl. Berakhir</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control" id="ed-tgl-akr" name="ed_tgl_akr">
+                <input type="date" class="form-control" id="ed-tgl-akr" name="ed_tgl_akr" required="required">
               </div>
             </div>
           </div>
@@ -139,13 +139,13 @@
             <div class="form-group row">
               <label for="#" class="col-sm-2 control-label">Tgl. Mulai</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="ed-tglmlai" name="ed_tgl_mlai" placeholder="#" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                <input type="date" class="form-control" id="ed-tglmlai" name="ed_tgl_mlai" required="required">
               </div>
             </div>
             <div class="form-group row">
               <label for="#" class="col-sm-2 control-label">Tgl. Berakhir</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="ed-tglakr" name="ed_tgl_akr" placeholder="#" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                <input type="date" class="form-control" id="ed-tglakr" name="ed_tgl_akr" required="required">
               </div>
             </div>
           </div>

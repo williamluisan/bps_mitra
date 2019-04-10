@@ -103,7 +103,7 @@ $autoload['helper'] = array('url', 'universal_helper');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array('config_theme', 'config_file_upload');
+$autoload['config'] = array('config_theme', 'config_file_upload', 'form_validation');
 
 /*
 | -------------------------------------------------------------------

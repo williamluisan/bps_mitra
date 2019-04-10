@@ -24,17 +24,43 @@
         
         public function insert()
         {
-            $result = $this->Data_mitra_model->insert();
+            $this->form_validation->set_rules($this->config->item('data_mitra_tambah'));
 
-            echo $result;
+            if ($this->form_validation->run() == FALSE):
+                $status = array(
+                    'status'    => 'gagal',
+                    'deskripsi' => $this->form_validation->error_string(),
+                );
+
+                echo json_encode($status);
+
+                return 0;   
+            endif;
+
+            // $result = $this->Data_mitra_model->insert();
+
+            // echo $result;
         }
 
         
         public function edit()
         {
-            $result = $this->Data_mitra_model->edit();
+            $this->form_validation->set_rules($this->config->item('data_mitra_edit'));
 
-            echo $result;
+            if ($this->form_validation->run() == FALSE):
+                $status = array(
+                    'status'    => 'gagal',
+                    'deskripsi' => $this->form_validation->error_string(),
+                );
+
+                echo json_encode($status);
+
+                return 0;   
+            endif;
+
+            // $result = $this->Data_mitra_model->edit();
+
+            // echo $result;
         }
 
 

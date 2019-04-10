@@ -26,7 +26,7 @@
             $('.modal').modal('hide');
             setTimeout(function() {
                 window.location.reload();
-            }, 1000);
+            }, 2000);
         });
     }
 
@@ -106,7 +106,7 @@
         }).always(function (){
             setTimeout(function() {
                 window.location.reload();
-            }, 1000);
+            }, 2000);
         });
 
         del_req.done(function(d, j, t){
