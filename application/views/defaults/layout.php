@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="<?php echo $this->config->item('resource_url');?>plugins/datatables/dataTables.bootstrap.css">
   <link rel="stylesheet" href="<?php echo $this->config->item('resource_url');?>plugins/select2/select2.min.css"/>
   <link rel="stylesheet" href="<?php echo $this->config->item('resource_url');?>additional/tik_unsrat.css"/>
+  <link rel="stylesheet" href="<?php echo $this->config->item('resource_url');?>plugins/jquery-confirm/dist/jquery-confirm.min.css"/>
   <script src="<?php echo $this->config->item('resource_url');?>plugins/jQuery/jQuery-2.2.0.min.js"></script>
   <script src="<?php echo $this->config->item('resource_url');?>additional/tik_unsrat_functions.js"></script>
 </head>
@@ -134,6 +135,7 @@
     <script src="<?php echo $this->config->item('resource_url');?>plugins/input-mask/jquery.inputmask.js"></script>
     <script src="<?php echo $this->config->item('resource_url');?>plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
     <script src="<?php echo $this->config->item('resource_url');?>plugins/input-mask/jquery.inputmask.extensions.js"></script>
+    <script src="<?php echo $this->config->item('resource_url');?>plugins/jquery-confirm/dist/jquery-confirm.min.js"></script>
     <script>
 
         $(document).ready(function() {

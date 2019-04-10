@@ -42,8 +42,11 @@
         });
 
         ins_req.fail(function(j, t, e){
-            alert('Terjadi kesalahan');
-            alert(e);
+            $.dialog({
+                title: 'Error',
+                content: `Terjadi kesalahan: ${e}`,
+                type: 'red',
+            });
         });
     });
 
@@ -67,8 +70,11 @@
         });
 
         ed_mdl_req.fail((j, t, e) => {
-            alert('Terjadi kesalahan');
-            alert(e);
+            $.dialog({
+                title: 'Error',
+                content: `Terjadi kesalahan: ${e}`,
+                type: 'red',
+            });
         });
     });
 
@@ -84,8 +90,11 @@
         });
 
         ed_req.fail((j, t, e) => {
-            alert('Terjadi kesalahan');
-            alert(e);
+            $.dialog({
+                title: 'Error',
+                content: `Terjadi kesalahan: ${e}`,
+                type: 'red',
+            });
         });
     });
 
@@ -114,8 +123,11 @@
         });
 
         del_req.fail((j, t, e) => {
-            alert('Terjadi kesalahan');
-            alert(e);
+            $.dialog({
+                title: 'Error',
+                content: `Terjadi kesalahan: ${e}`,
+                type: 'red',
+            });
         });
     });
 </script>

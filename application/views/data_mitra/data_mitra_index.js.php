@@ -56,8 +56,11 @@
         });
 
         ins_req.fail(function(j, t, e){
-            alert('Terjadi kesalahan');
-            alert(e);
+            $.dialog({
+                title: 'Error',
+                content: `Terjadi kesalahan: ${e}`,
+                type: 'red',
+            });
         });
     });
 
@@ -92,8 +95,11 @@
         });
 
         ed_mdl_req.fail((j, t, e) => {
-            alert('Terjadi kesalahan');
-            alert(e);
+            $.dialog({
+                title: 'Error',
+                content: `Terjadi kesalahan: ${e}`,
+                type: 'red',
+            });
         });
     });
     
@@ -109,8 +115,11 @@
         });
 
         ed_req.fail((j, t, e) => {
-            alert('Terjadi kesalahan');
-            alert(e);
+            $.dialog({
+                title: 'Error',
+                content: `Terjadi kesalahan: ${e}`,
+                type: 'red',
+            });
         });
     });
 
@@ -166,8 +175,11 @@
             }
             $('#tbl-pengalaman tbody').html(elem);
         }).fail((j, t, e) => {
-            alert('Terjadi kesalahan');
-            alert(e);
+            $.dialog({
+                title: 'Error',
+                content: `Terjadi kesalahan: ${e}`,
+                type: 'red',
+            });
         });
 
         $('#no-mitra').val(id);
@@ -188,8 +200,11 @@
         });
 
         pnglmn_req.fail((j, t, e) => {
-            alert('Terjadi kesalahan');
-            alert(e);
+            $.dialog({
+                title: 'Error',
+                content: `Terjadi kesalahan: ${e}`,
+                type: 'red',
+            });
         });
     });
 
@@ -211,8 +226,11 @@
         }).done((d, t, j) => {
             alert_js(d.status, d.deskripsi);
         }).fail((j, t, e) => {
-            alert('Terjadi kesalahan');
-            alert(e);
+            $.dialog({
+                title: 'Error',
+                content: `Terjadi kesalahan: ${e}`,
+                type: 'red',
+            });
         }).always(function(){
             $('.modal').modal('hide');
             setTimeout(function() {
@@ -247,8 +265,11 @@
         });
 
         del_req.fail((j, t, e) => {
-            alert('Terjadi kesalahan');
-            alert(e);
+            $.dialog({
+                title: 'Error',
+                content: `Terjadi kesalahan: ${e}`,
+                type: 'red',
+            });
         });
     });
 
@@ -281,8 +302,11 @@
         });
 
         dtl_req.fail((j, t, e) => {
-            alert('Terjadi kesalahan');
-            alert(e);
+            $.dialog({
+                title: 'Error',
+                content: `Terjadi kesalahan: ${e}`,
+                type: 'red',
+            });
         });
     });
 </script>
