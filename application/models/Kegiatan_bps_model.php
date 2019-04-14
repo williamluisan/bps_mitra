@@ -18,21 +18,7 @@
         {
             $query = $this->db_bps->order_by('id', 'ASC')->get('mtr_prd_kegiatan')->result_array();
 
-            if ( ! empty($query)):
-                $status = array(
-                    'status'    => 'berhasil',
-                    'deskripsi' => 'Berhasil mengambil data',
-                    'data'      => $query
-                );
-            else:
-                $status = array(
-                    'status'    => 'gagal',
-                    'deskripsi' => 'Gagal mengambil data',
-                    'data'      => NULL
-                );
-            endif;
-
-            return json_encode($status);
+            return $query;
         }
 
 

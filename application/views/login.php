@@ -9,15 +9,21 @@
     <link rel="stylesheet" href="<?php echo $this->config->item('resource_url'); ?>bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $this->config->item('resource_url'); ?>plugins/font-awesome/fonts/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo $this->config->item('resource_url'); ?>dist/css/AdminLTE.min.css">
+    <style>
+      body {
+        background: url('./resources/images/login.jpg');
+        background-size: 100% 100%;
+      }
+    </style>
   </head>
   <body class="hold-transition">
     <div class="login-box">
-      <div class="login-logo" style="margin-bottom: 0px;">
-        <img type="image/jpg" alt="UNSRAT" src="<?php echo $this->config->item('resource_url');?>images/BPS.png" style="width: 3em;"/><br/>
-        <h2><strong>BPS KOTA MANADO</strong></h2>  
+      <div class="login-logo" style="color: #ffff00;">
+        <img type="image/jpg" alt="UNSRAT" src="<?php echo $this->config->item('resource_url');?>images/BPS.png" style="width: 3em;"/>
+        <h2 style="margin-top: 0.2em;"><strong>BPS KOTA MANADO</strong></h2>  
         <h4>Aplikasi Manajemen Data Mitra</h4>
       </div>
-      <div class="login-box-body">
+      <div class="login-box-body" style="border-radius: 0.5em;">
         <p style="text-align: center;">
           <?php if(!empty($this->session->flashdata('error'))){ ?>
               <div class="row">

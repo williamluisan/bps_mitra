@@ -13,7 +13,7 @@
 
         public function index()
         {
-            $data['list_kegiatan'] = json_decode($this->Kegiatan_bps_model->get_all(), TRUE);
+            $data['list_kegiatan'] = $this->Kegiatan_bps_model->get_all();
 
             $data['title'] = 'Kegiatan BPS';
             $data['view_file_path'] = 'referensi/kegiatan_bps.php';
@@ -37,9 +37,9 @@
                 return 0;   
             endif;
             
-            // $result = $this->Kegiatan_bps_model->insert();
+            $result = $this->Kegiatan_bps_model->insert();
 
-            // echo $result;
+            echo $result;
         }
 
 
@@ -58,9 +58,9 @@
                 return 0;   
             endif;
 
-            // $result = $this->Kegiatan_bps_model->edit();
+            $result = $this->Kegiatan_bps_model->edit();
 
-            // echo $result;
+            echo $result;
         }
 
 

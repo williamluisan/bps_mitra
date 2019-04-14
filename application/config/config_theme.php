@@ -27,4 +27,4 @@ $config['website_abbrv']            = "BPS";
 $config['website_title1']           = "BPS";
 $config['website_title2']           = "MITRA";
 $config['website_copyright_year']   = "2019";
-$config['website_copyright']        = " LumbaLunba";
+$config['website_copyright']        = " | <a href='https://github.com/williamluisan/bps_mitra' target='_blank'>Github</a>";

@@ -35,7 +35,7 @@
             if ($_FILES['in_gbr']['size'] != 0):
                 $file_gambar = $this->Upload_model->upload_gambar($this->config->item('pas_foto'));
             else:
-                $file_gambar['file_name'] = NULL;
+                $file_gambar['file_name'] = 'default.png';
             endif;
                      
             $data = [
@@ -45,7 +45,6 @@
                 'data_id_pddk_trkhr' => html_escape($this->input->post('in_sel_pddk')),
                 'data_no_mitra' => html_escape($this->input->post('in_no_mitra')),
                 'data_pas_foto' => $file_gambar['file_name'],
-                'data_id_pnglmn_krj' => html_escape($this->input->post('in_sel_penglmn')),
                 'data_no_hp' => html_escape($this->input->post('in_nohp')),
             ];
 

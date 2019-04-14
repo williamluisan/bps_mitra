@@ -38,7 +38,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $no = 1; foreach($list_kegiatan['data'] as $r):?>
+                <?php $no = 1; foreach($list_kegiatan as $r):?>
                 <tr>
                     <td align="center"><?php echo $no++;?></td>
                     <td><?php echo $r['keg_nama'];?></td>

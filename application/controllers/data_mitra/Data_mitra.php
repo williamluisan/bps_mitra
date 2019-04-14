@@ -37,9 +37,9 @@
                 return 0;   
             endif;
 
-            // $result = $this->Data_mitra_model->insert();
+            $result = $this->Data_mitra_model->insert();
 
-            // echo $result;
+            echo $result;
         }
 
         
@@ -58,9 +58,9 @@
                 return 0;   
             endif;
 
-            // $result = $this->Data_mitra_model->edit();
+            $result = $this->Data_mitra_model->edit();
 
-            // echo $result;
+            echo $result;
         }
 
 

@@ -26,7 +26,7 @@
             $('.modal').modal('hide');
             setTimeout(function() {
                 window.location.reload();
-            }, 2000);
+            }, 1500);
         });
     }
 
@@ -65,8 +65,8 @@
             $('#ed-id').val(d.data.id);
             $('#ed-nama-keg').val(d.data.keg_nama);
             $('#ed-desk').val(d.data.keg_deskripsi);
-            $('#ed-tglmlai').val(tik_date_reverse(d.data.keg_tgl_mulai, '/', '-'));
-            $('#ed-tglakr').val(tik_date_reverse(d.data.keg_tgl_selesai, '/', '-'));
+            $('#ed-tglmlai').val(d.data.keg_tgl_mulai);
+            $('#ed-tglakr').val(d.data.keg_tgl_selesai);
         });
 
         ed_mdl_req.fail((j, t, e) => {
