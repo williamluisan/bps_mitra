@@ -2,7 +2,7 @@
 
     defined('BASEPATH') or exit('Direct access script is not allowed');
 
-    class Data_mitra extends CI_Controller 
+    class Data_mitra extends MY_Controller 
     {
         public function __construct()
         {

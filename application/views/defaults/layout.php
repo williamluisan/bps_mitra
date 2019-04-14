@@ -47,7 +47,7 @@
         <ul class="nav navbar-nav">
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="<?php echo base_url();?>login/logout" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-sign-out-alt"></i>
               <span class="hidden-xs">Keluar</span>
             </a>

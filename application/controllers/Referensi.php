@@ -2,7 +2,7 @@
 
     defined('BASEPATH') or exit('Direct access path is not allowed');
 
-    class Referensi extends CI_Controller 
+    class Referensi extends MY_Controller 
     {
         public function __construct()
         {

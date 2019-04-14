@@ -2,7 +2,7 @@
 
     defined('BASEPATH') or exit('Direct access path is not allowed');
 
-    class Beranda extends CI_Controller 
+    class Beranda extends MY_Controller 
     {
         public function __construct()
         {

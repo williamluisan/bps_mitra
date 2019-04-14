@@ -37,13 +37,14 @@
         function login_admin($user_data)
         {
             $result = $this->Login_model->cek_login_admin($user_data);
+            
             if($result) {
                 //bcrypt hash
                 if (password_verify($user_data['user_pass'], $result['user_pass'])){
                     $this->set_session($result);
                     $this->session->set_userdata('id', $result['id']);
 
-                    redirect('data_mitra/Data_mitra');
+                    redirect('beranda');
                 } else {
                     $this->session->set_flashdata('error', 'username atau password salah.');
                     redirect('login');

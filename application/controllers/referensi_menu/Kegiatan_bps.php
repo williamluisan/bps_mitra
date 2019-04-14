@@ -2,7 +2,7 @@
 
     defined('BASEPATH') or exit('Direct access script is not allowed');
     
-    class Kegiatan_bps extends CI_Controller 
+    class Kegiatan_bps extends MY_Controller 
     {
         public function __construct()
         {
