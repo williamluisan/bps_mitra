@@ -84,7 +84,8 @@
           </div>
           <div class="pull-left info">
             <p><?php echo $this->session->userdata('nama');?></p>
-            <a href="#">Administrator</a>
+            <a href="#"><?php echo $this->session->userdata('name');?></a>
+            <a href="#"><i class="fa fa-circle text-success"></i> <?php echo $this->session->userdata('tipe_user');?></a>
           </div>
         </div>
         <!-- /.search form -->

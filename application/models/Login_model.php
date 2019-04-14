@@ -23,4 +23,10 @@
 			else return FALSE;
         }
 
+        function last_login_write()
+        {
+            $this->db_bps->where('id', $this->session->userdata('id'));
+            $this->db_bps->update('mtr_user', ['user_last_login' => date('Y-m-d H:i:s')]);            
+        }
+
     }

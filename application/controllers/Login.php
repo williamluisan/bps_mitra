@@ -43,6 +43,7 @@
                 if (password_verify($user_data['user_pass'], $result['user_pass'])){
                     $this->set_session($result);
                     $this->session->set_userdata('id', $result['id']);
+                    $this->Login_model->last_login_write();
 
                     redirect('beranda');
                 } else {
@@ -65,6 +66,6 @@
         function logout()
         {
             $this->session->sess_destroy();
-            redirect('Login');
+            redirect('login');
         }
     }
