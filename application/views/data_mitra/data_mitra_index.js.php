@@ -84,13 +84,14 @@
         });
 
         ed_mdl_req.done((d, t, j) => {
+            console.log(d);
             $('#ed-id').val(d[0].id);
             $('#ed-nama').val(d[0].data_nama);
             $('#ed-ktp').val(d[0].data_no_ktp);
             $('#ed-alamat').val(d[0].data_alamat);
             $('#ed-sel-pddktrkhr').val(d[0].data_id_pddk_trkhr);
             $('#ed-no-mitra').val(d[0].data_no_mitra);
-            $('#ed-pasfoto-show').attr('src', '<?php echo $this->config->item('pas_foto')['upload_path']?>/'+d.data_pas_foto);
+            $('#ed-pasfoto-show').attr('src', '<?php echo $this->config->item('pas_foto')['upload_path']?>/'+d[0].data_pas_foto);
             $('#ed-nohp').val(d[0].data_no_hp);
         });
 
