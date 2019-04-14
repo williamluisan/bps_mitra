@@ -92,6 +92,11 @@
         <ul class="sidebar-menu">
           <li class="header">MENU</li>
           <li class="treeview">
+            <a href="<?php echo base_url();?>beranda">
+              <i class="fa fa-home"></i> <span>Beranda</span>
+            </a>
+          </li>
+          <li class="treeview">
             <a href="<?php echo base_url();?>mitra">
               <i class="fa fa-list-ul"></i> <span>Data Mitra</span>
             </a>
